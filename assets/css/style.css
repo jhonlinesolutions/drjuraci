@@ -1,0 +1,509 @@
+/* ============================================================
+   Dr. Juraci Rosa de Oliveira — Ortopedista
+   Stylesheet reconstruído a partir do site original (drjuraci.com.br)
+   ============================================================ */
+
+:root {
+  --azul-escuro: #0f718f;
+  --azul-escuro-dark: #0b5871;
+  --azul-claro: #2399be;
+  --azul-suave: #a8ebff;
+  --navy: #1b2a4a;
+  --texto: #333333;
+  --texto-claro: #5a6b78;
+  --branco: #ffffff;
+  --cinza-bg: #f4f8f9;
+  --borda: #e1ecef;
+  --sombra: 0 10px 30px rgba(15, 113, 143, 0.12);
+  --fonte-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --fonte-base: "Mulish", "Segoe UI", Arial, Helvetica, sans-serif;
+  --header-h: 84px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-base);
+  color: var(--texto);
+  background: var(--branco);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--fonte-base); font-weight: 700; margin: 0 0 16px; color: var(--navy); }
+
+.section-eyebrow {
+  color: var(--azul-escuro);
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.section-eyebrow--light { color: var(--branco); }
+
+.linha-central {
+  width: 40px;
+  height: 3px;
+  background: var(--azul-escuro);
+  margin: 0 auto 40px;
+}
+.linha-central--light { background: var(--branco); }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block;
+  padding: 13px 34px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-primario {
+  background: var(--azul-escuro);
+  border-color: var(--azul-escuro);
+  color: var(--branco);
+}
+.btn-primario:hover { background: var(--azul-claro); border-color: var(--azul-claro); }
+.btn-secundario {
+  background: var(--branco);
+  border-color: var(--branco);
+  color: var(--azul-escuro);
+}
+.btn-secundario:hover { background: var(--azul-claro); border-color: var(--azul-claro); color: var(--branco); }
+.btn-outline {
+  background: transparent;
+  border-color: var(--branco);
+  color: var(--branco);
+}
+.btn-outline:hover { background: var(--branco); color: var(--azul-escuro); }
+
+/* ---------- Header / navegação ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--branco);
+  box-shadow: 0 2px 12px rgba(15, 41, 51, 0.08);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+}
+
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-icon { width: 52px; height: 52px; flex-shrink: 0; }
+.logo-texto { line-height: 1.2; }
+.logo-texto .nome {
+  display: block;
+  font-family: var(--fonte-serif);
+  font-variant: small-caps;
+  font-size: 1.32rem;
+  letter-spacing: 0.03em;
+  color: var(--navy);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.logo-texto .titulo {
+  display: block;
+  font-family: var(--fonte-serif);
+  font-variant: small-caps;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: var(--texto-claro);
+  text-align: center;
+}
+.logo-texto.logo-texto--light .nome { color: var(--branco); }
+.logo-texto.logo-texto--light .titulo { color: rgba(255,255,255,0.85); }
+
+.nav-principal { display: flex; align-items: center; gap: 2px; }
+.nav-principal a {
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #333;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.nav-principal a:hover,
+.nav-principal a.ativo { color: var(--azul-escuro); }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: var(--azul-escuro);
+  border-radius: 2px;
+}
+
+@media (max-width: 1140px) {
+  .menu-toggle { display: block; }
+  .nav-principal {
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0 12px 20px rgba(15,41,51,0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-principal.aberto { max-height: 500px; }
+  .nav-principal a { padding: 14px 24px; border-bottom: 1px solid var(--borda); }
+  .logo-texto .nome { font-size: 1.08rem; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.hero-video {
+  position: relative;
+  flex: 1 1 62%;
+  min-height: 420px;
+  overflow: hidden;
+  background: var(--navy) url("../img/hero-bg.jpg") center/cover no-repeat;
+}
+.hero-video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-texto {
+  flex: 1 1 38%;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  background: var(--branco);
+  border-bottom: 10px solid var(--azul-escuro);
+  padding: 60px 8%;
+}
+.hero-texto .topo {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--azul-escuro);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.hero-texto h1 {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  color: var(--azul-escuro);
+  border-bottom: 3px solid var(--azul-escuro);
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+}
+.hero-texto .rodape-frase {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--texto);
+}
+
+@media (max-width: 900px) {
+  .hero { flex-direction: column; }
+  .hero-video { min-height: 320px; }
+  .hero-texto { text-align: center; padding: 48px 8%; }
+  .hero-texto h1 { font-size: 2rem; }
+}
+
+/* ---------- Quem Sou ---------- */
+.secao { padding: 80px 0; }
+.secao--claro { background: var(--branco); }
+.secao--cinza { background: var(--cinza-bg); }
+.secao--escuro { background: var(--azul-escuro); color: var(--branco); }
+.secao--escuro h2 { color: var(--branco); }
+
+.quemsou-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 40px;
+}
+.quemsou-texto h2 { font-size: 1.7rem; }
+.quemsou-texto p { margin: 0 0 14px; color: var(--texto); }
+.quemsou-texto ul { margin: 10px 0 16px; }
+.quemsou-texto li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+.quemsou-texto li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--azul-escuro);
+}
+.quemsou-foto {
+  position: relative;
+  background: linear-gradient(to right, var(--azul-escuro) 46%, transparent 46%);
+  border-radius: 8px;
+  padding: 40px 0;
+}
+.quemsou-foto img { border-radius: 8px; width: 84%; box-shadow: var(--sombra); }
+
+@media (max-width: 900px) {
+  .quemsou-grid { grid-template-columns: 1fr; gap: 36px; text-align: left; }
+  .quemsou-foto { background: none; padding: 0; }
+  .quemsou-foto img { width: 100%; }
+}
+
+/* ---------- Como posso ajudar / cards ---------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin: 46px 0;
+}
+.card-patologia {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 26px 28px;
+  transition: background 0.2s ease;
+}
+.card-patologia:hover { background: rgba(255,255,255,0.22); }
+.card-patologia .num {
+  font-family: var(--fonte-serif);
+  font-size: 3.2rem;
+  font-weight: 200;
+  line-height: 1;
+  color: var(--branco);
+  opacity: 0.85;
+}
+.card-patologia h4 { color: var(--branco); font-size: 1.15rem; font-weight: 500; margin: 0; }
+.acoes-central { text-align: center; margin-bottom: 50px; }
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+.videos-grid iframe { width: 100%; height: 215px; border: 0; border-radius: 6px; }
+
+@media (max-width: 900px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .videos-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Telemedicina ---------- */
+.tele-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+.tele-video {
+  position: relative;
+  background: linear-gradient(to right, var(--azul-escuro) 49%, transparent 48%);
+  border-radius: 8px;
+  padding: 35px 0;
+}
+.tele-video video { border-radius: 8px; width: 100%; box-shadow: var(--sombra); }
+.tele-texto p { color: var(--texto); margin-bottom: 14px; }
+.tele-texto h2 { font-size: 1.7rem; }
+
+@media (max-width: 900px) {
+  .tele-grid { grid-template-columns: 1fr; gap: 32px; }
+  .tele-video { background: none; padding: 0; }
+}
+
+/* ---------- Páginas internas (Convênios, Covid, Tratamentos etc.) ---------- */
+.pagina-hero {
+  padding: 50px 0 10px;
+  text-align: center;
+}
+.pagina-capa {
+  margin: 30px 0 40px;
+  background: var(--azul-escuro);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.pagina-capa img { width: 100%; max-height: 380px; object-fit: cover; opacity: 0.92; }
+
+.texto-pagina { max-width: 860px; margin: 0 auto; padding-bottom: 70px; }
+.texto-pagina h3 { color: var(--azul-escuro); margin-top: 34px; font-size: 1.25rem; }
+.texto-pagina p { margin-bottom: 14px; }
+.texto-pagina ul { margin: 10px 0 20px 4px; }
+.texto-pagina li { position: relative; padding-left: 22px; margin-bottom: 8px; }
+.texto-pagina li::before {
+  content: "";
+  position: absolute; left: 2px; top: 10px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--azul-escuro);
+}
+.voltar-link { display: inline-block; margin-bottom: 30px; color: var(--azul-escuro); font-weight: 600; }
+.voltar-link:hover { text-decoration: underline; }
+
+/* ---------- Tratamentos (listagem) ---------- */
+.lista-tratamentos { max-width: 900px; margin: 30px auto 60px; display: flex; flex-direction: column; gap: 50px; }
+.item-tratamento { display: grid; grid-template-columns: 320px 1fr; gap: 30px; align-items: center; }
+.item-tratamento img { border-radius: 8px; height: 210px; width: 100%; object-fit: cover; }
+.item-tratamento h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.item-tratamento p { color: var(--texto); margin-bottom: 16px; }
+
+@media (max-width: 760px) {
+  .item-tratamento { grid-template-columns: 1fr; }
+  .item-tratamento img { height: 220px; }
+}
+
+/* ---------- Convênios ---------- */
+.busca-convenio {
+  max-width: 480px;
+  margin: 0 auto 44px;
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--azul-escuro);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--azul-escuro);
+}
+.busca-convenio::placeholder { color: var(--azul-claro); }
+.aviso-convenios {
+  text-align: center;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  margin-bottom: 26px;
+}
+.aviso-convenios span { color: #d64545; }
+.lista-convenios {
+  max-width: 980px;
+  margin: 0 auto 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 20px;
+}
+.lista-convenios li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--azul-escuro);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.lista-convenios img { width: 20px; height: 20px; flex-shrink: 0; }
+.lista-convenios li.escondido { display: none; }
+
+@media (max-width: 900px) { .lista-convenios { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .lista-convenios { grid-template-columns: 1fr; } }
+
+/* ---------- Contato ---------- */
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1000px;
+  margin: 30px auto 70px;
+}
+.contato-card {
+  background: var(--cinza-bg);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 34px;
+}
+.contato-card h3 { color: var(--azul-escuro); font-size: 1.1rem; margin-bottom: 18px; }
+.contato-linha { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; font-size: 1rem; }
+.contato-linha svg { flex-shrink: 0; color: var(--azul-escuro); }
+.contato-mapa { border-radius: 10px; overflow: hidden; border: 1px solid var(--borda); min-height: 260px; }
+.contato-mapa iframe { width: 100%; height: 100%; min-height: 260px; border: 0; }
+
+@media (max-width: 800px) { .contato-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--azul-escuro); color: var(--branco); padding: 60px 0 0; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+.footer-col h3 { color: var(--branco); font-size: 1.4rem; margin-bottom: 6px; }
+.footer-col .horario { opacity: 0.85; margin-bottom: 18px; display: block; }
+.footer-contato { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.footer-contato svg { flex-shrink: 0; }
+.footer-contato a:hover { text-decoration: underline; }
+.footer-col--centro { text-align: center; }
+.footer-col--centro .logo-icon { width: 96px; height: 96px; margin: 0 auto 14px; }
+.footer-col--direita { text-align: right; }
+.footer-col--direita .footer-mapa {
+  margin-top: 16px; border-radius: 8px; overflow: hidden; height: 140px; border: 1px solid rgba(255,255,255,0.2);
+}
+.footer-col--direita .footer-mapa iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.1); }
+.footer-agendamento { margin-top: 6px; }
+
+.footer-baixo {
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding: 18px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+.footer-baixo a { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .footer-contato { justify-content: center; }
+  .footer-col--direita { text-align: center; }
+  .footer-col--direita .footer-mapa { max-width: 320px; margin-left: auto; margin-right: auto; }
+}
+
+/* ---------- WhatsApp flutuante ---------- */
+.whats-flutuante {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 90;
+  transition: transform 0.2s ease;
+}
+.whats-flutuante:hover { transform: scale(1.08); }
+
+/* ---------- Utilidades ---------- */
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }

@@ -1,0 +1,8 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="48" fill="#ffffff"/>
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#0f718f" stroke-width="4"/>
+  <g transform="rotate(-25 50 50)" fill="none" stroke="#0f718f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 26 a7 7 0 1 1 10 10 l1 8 a6 6 0 1 1 10 10 l3 20 a7 7 0 1 1 -10 10 l-1 -8 a6 6 0 1 1 -10 -10 z"/>
+    <line x1="47" y1="48" x2="61" y2="52" stroke-width="3.6"/>
+  </g>
+</svg>
